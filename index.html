@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UPSky Digital Identity — Performance além do visual</title>
+  <meta name="description" content="UPSky Digital Identity — Sites modernos, rápidos e projetados para conversão. Performance além do visual." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --blue-500: #0EA5E9; /* azul moderno - ajuste conforme preferir */
+      --blue-700: #1E3A8A; /* azul escuro para contrastes */
+      --gray-100: #F5F7FA;
+      --gray-300: #E6E9EE;
+      --gray-700: #374151;
+      --max-width: 1100px;
+      --radius: 12px;
+      --transition: 350ms cubic-bezier(.2,.9,.3,1);
+      --padding: 24px;
+      --shadow-sm: 0 6px 18px rgba(15,23,42,0.06);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--gray-700);
+      background: #ffffff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+    header{padding:20px 0}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--blue-500),var(--blue-700));
+      display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;
+      box-shadow:var(--shadow-sm);
+    }
+    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    .btn {display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;background:var(--blue-500);color:#fff;font-weight:600;border:0;cursor:pointer;transition:transform var(--transition),box-shadow var(--transition)}
+    .btn.secondary{background:transparent;border:1px solid var(--gray-300);color:var(--gray-700);font-weight:600}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(14,165,233,0.12)}
+    /* HERO */
+    .hero{padding:56px 0 36px}
+    .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center}
+    .headline{font-size:42px;line-height:1.03;font-weight:800;color:var(--blue-700);margin:0 0 12px}
+    .subheadline{font-size:18px;color:var(--gray-700);margin:0 0 20px}
+    .hero-ctas{display:flex;gap:12px;align-items:center}
+    .card-hero{background:linear-gradient(180deg, rgba(14,165,233,0.04), rgba(14,165,233,0.02));padding:18px;border-radius:14px;box-shadow:var(--shadow-sm)}
+    .features{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .feat{background:#fff;border:1px solid var(--gray-300);padding:12px;border-radius:10px;font-weight:500;font-size:14px}
+    /* Benefits */
+    .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:36px 0}
+    .benefit{background:#fff;border-radius:12px;padding:20px;box-shadow:var(--shadow-sm);border:1px solid var(--gray-100)}
+    .benefit h4{margin:0 0 8px;font-size:18px;color:var(--blue-700)}
+    .benefit p{margin:0;color:#555}
+    /* About */
+    .about{padding:28px;background:var(--gray-100);border-radius:12px;margin:36px 0}
+    .cases{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:28px 0}
+    .case{background:#fff;border-radius:10px;padding:18px;border:1px solid var(--gray-300);box-shadow:var(--shadow-sm)}
+    .process{display:flex;gap:12px;flex-wrap:wrap}
+    .step{background:#fff;border-radius:10px;padding:14px;border:1px solid var(--gray-300);min-width:170px;flex:1}
+    /* CTA final */
+    .final-cta{display:flex;align-items:center;justify-content:space-between;padding:24px;border-radius:14px;background:linear-gradient(90deg, rgba(14,165,233,0.06), rgba(30,58,138,0.03));margin:36px 0}
+    /* Footer */
+    footer{padding:28px 0;border-top:1px solid var(--gray-100);margin-top:40px}
+    .footer-grid{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap}
+    .small{font-size:13px;color:#6b7280}
+    /* Responsive */
+    @media (max-width:980px){
+      .hero-grid{grid-template-columns:1fr;gap:20px}
+      .benefits{grid-template-columns:1fr}
+      .cases{grid-template-columns:1fr}
+      .nav ul{display:none}
+    }
+    /* simple enter animations (will be toggled via JS) */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity 520ms ease, transform 520ms ease}
+    .reveal.visible{opacity:1;transform:none}
+    /* Form */
+    .contact-form{display:flex;flex-direction:column;gap:10px}
+    input,textarea{padding:12px;border-radius:8px;border:1px solid var(--gray-300);font-size:14px}
+    textarea{min-height:120px;resize:vertical}
+    .checkbox{display:flex;gap:8px;align-items:center}
+    .muted{color:#6b7280;font-size:13px}
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">U</div>
+        <div>
+          <div style="font-weight:700">UPSky</div>
+          <div style="font-size:13px;color:#6b7280">Digital Identity</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#servicos" class="small">Serviços</a></li>
+          <li><a href="#cases" class="small">Casos</a></li>
+          <li><a href="#processo" class="small">Processo</a></li>
+          <li><a href="#contato" class="small">Contato</a></li>
+        </ul>
+      </nav>
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="btn secondary" href="#contato">Ver Portfólio</a>
+        <a class="btn" href="#contato">Solicitar Identidade Digital</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <h1 class="headline reveal">UPSky Digital Identity</h1>
+          <p class="subheadline reveal">Sua presença digital elevada a um novo padrão: moderna, rápida e projetada estrategicamente para gerar resultados reais.</p>
+          <div class="hero-ctas reveal">
+            <a href="#contato" class="btn">Solicitar Identidade Digital</a>
+            <a href="#cases" class="btn secondary">Ver Projetos</a>
+          </div>
+
+          <div class="features reveal" style="margin-top:22px">
+            <div class="feat">Design premium</div>
+            <div class="feat">Performance otimizada</div>
+            <div class="feat">Micro animações</div>
+          </div>
+        </div>
+
+        <aside class="card-hero reveal" aria-hidden="true">
+          <h3 style="margin:0 0 8px">Protótipo: Home + LP</h3>
+          <p style="margin:0 0 12px" class="muted">Modelo inicial pensado para converter visitantes em leads qualificados — completamente editável.</p>
+          <ul style="margin:0;padding-left:18px;color:#333">
+            <li>Tempo de carregamento otimizado</li>
+            <li>Formulário + WhatsApp + Calendário</li>
+            <li>SEO on-page básico</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section id="servicos" class="reveal">
+      <div class="benefits">
+        <div class="benefit">
+          <h4>Performance ultrarrápida</h4>
+          <p>Arquitetura otimizada para reduzir o tempo de carregamento e melhorar a experiência do usuário.</p>
+        </div>
+        <div class="benefit">
+          <h4>Design orientado a conversão</h4>
+          <p>Layouts pensados para guiar atenção, reduzir distrações e gerar ação.</p>
+        </div>
+        <div class="benefit">
+          <h4>Micro animações inteligentes</h4>
+          <p>Interações sutis que aumentam percepção de valor sem sacrificar a velocidade.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about reveal">
+      <div style="display:flex;align-items:flex-start;gap:18px;justify-content:space-between">
+        <div style="flex:1">
+          <h3 style="margin-top:0;color:var(--blue-700)">O que é a UPSky Digital Identity?</h3>
+          <p class="muted">Mais que um site: entregamos uma identidade digital completa — combinando design, performance, posicionamento e copy que converte.</p>
+        </div>
+        <div style="width:320px">
+          <div style="background:#fff;padding:14px;border-radius:10px;border:1px solid var(--gray-300);box-shadow:var(--shadow-sm)">
+            <strong>Entrega</strong>
+            <p class="muted" style="margin:8px 0 0;font-size:13px">Home institucional • Página de serviços • Landing de conversão • Deploy e guia de manutenção</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASES -->
+    <section id="cases" class="reveal">
+      <h3 style="color:var(--blue-700)">Estudos de caso (exemplos)</h3>
+      <div class="cases" aria-hidden="false">
+        <article class="case">
+          <strong>BellaSkin — Clínica de Estética</strong>
+          <p class="muted">Antes: site lento e sem identidade. Depois: projeto UPSky — +48% agendamentos (estimado).</p>
+        </article>
+        <article class="case">
+          <strong>Almeida & Rocha — Escritório</strong>
+          <p class="muted">Antes: pouco claro. Depois: reestruturação de copy e layout — +35% de contatos via formulário.</p>
+        </article>
+        <article class="case">
+          <strong>Ateliê Arquitetura — Profissional liberal</strong>
+          <p class="muted">Melhora na percepção de valor e propostas recebidas.</p>
+        </article>
+        <article class="case">
+          <strong>Serviços Rápidos Ltda — Pequena empresa</strong>
+          <p class="muted">Implantação de identidade digital — +52% de leads qualificados (estimado).</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="processo" class="reveal">
+      <h3 style="color:var(--blue-700)">Nosso processo</h3>
+      <div class="process">
+        <div class="step"><strong>1 — Briefing</strong><div class="muted">Alinhamos objetivos e público</div></div>
+        <div class="step"><strong>2 — Arquitetura</strong><div class="muted">Estrutura de informação e fluxo de conversão</div></div>
+        <div class="step"><strong>3 — Design</strong><div class="muted">Prototipação e visual premium</div></div>
+        <div class="step"><strong>4 — Desenvolvimento</strong><div class="muted">Código leve e otimizado</div></div>
+        <div class="step"><strong>5 — Deploy</strong><div class="muted">Site no ar + otimizações</div></div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="final-cta reveal">
+      <div>
+        <h3 style="margin:0;color:var(--blue-700)">Pronto para elevar sua presença digital?</h3>
+        <p class="muted" style="margin:6px 0 0">Solicite sua UPSky Digital Identity e transforme visitantes em oportunidades.</p>
+      </div>
+      <div style="display:flex;gap:12px;align-items:center">
+        <a class="btn" href="#contato">Solicitar Identidade Digital</a>
+        <a class="btn secondary" href="#contato">Ver Portfólio</a>
+      </div>
+    </section>
+
+    <!-- CONTACT / FORM -->
+    <section id="contato" class="reveal">
+      <h3 style="color:var(--blue-700)">Fale com a UPSky</h3>
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:12px">
+        <form class="contact-form" style="background:#fff;padding:18px;border-radius:10px;border:1px solid var(--gray-300);box-shadow:var(--shadow-sm)" onsubmit="handleSubmit(event)">
+          <input type="text" id="name" placeholder="Nome completo" required>
+          <input type="email" id="email" placeholder="E-mail" required>
+          <input type="text" id="company" placeholder="Empresa / atividade (opcional)">
+          <textarea id="message" placeholder="Conte breve sobre o projeto ou objetivo"></textarea>
+          <label class="checkbox"><input type="checkbox" id="lgpd" required> <span class="muted">Autorizo o tratamento de dados para contato (LGPD)</span></label>
+          <div style="display:flex;gap:10px">
+            <button class="btn" type="submit">Solicitar Identidade Digital</button>
+            <a class="btn secondary" href="https://wa.me/5591999999999" target="_blank" rel="noopener">Conversar no WhatsApp</a>
+          </div>
+          <p class="muted" style="margin-top:8px">Ao enviar, você concorda com nossa Política de Privacidade.</p>
+        </form>
+
+        <aside style="background:linear-gradient(180deg,#fff,#f9fafb);padding:18px;border-radius:10px;border:1px solid var(--gray-300);box-shadow:var(--shadow-sm)">
+          <h4 style="margin:0 0 8px">Contato rápido</h4>
+          <p class="muted" style="margin:0 0 8px">E-mail: contato@upsky.com.br</p>
+          <p class="muted" style="margin:0 0 8px">WhatsApp: +55 (91) 99999-9999</p>
+          <div style="margin-top:8px">
+            <a class="btn" href="#contato">Solicitar Identidade Digital</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-grid container">
+        <div>
+          <div style="font-weight:700">UPSky</div>
+          <div class="small muted" style="margin-top:6px">Digital Identity • Performance além do visual</div>
+        </div>
+        <div class="small" style="max-width:520px">
+          <div style="margin-bottom:8px"><strong>Política de privacidade</strong></div>
+          <div class="muted">Recomendamos adaptar e publicar sua política de privacidade e termos, incluindo finalidades do tratamento de dados conforme LGPD.</div>
+        </div>
+        <div class="small">
+          © <span id="year"></span> UPSky • Todos os direitos reservados
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // simple reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          entry.target.classList.remove('reveal'); // allow one-time animation
+        }
+      });
+    }, {threshold: 0.12});
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      observer.observe(el);
+    });
+
+    // basic form handler (placeholder — integrate with backend/Netlify forms/CRM)
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name || !email) return alert('Preencha nome e e-mail');
+      // For portfolio/demo: show success modal
+      alert('Obrigado, ' + name + '! Recebemos sua solicitação. Iremos responder em breve.');
+      // TODO: enviar para endpoint, Zapier, Pipedrive, ou Netlify Forms
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
