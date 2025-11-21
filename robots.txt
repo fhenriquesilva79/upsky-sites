@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://seu-dominio.com/sitemap.xml
+Host: https://seu-dominio.com
